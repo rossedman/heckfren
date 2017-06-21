@@ -1,0 +1,16 @@
+version: '3'
+services:
+  heckfren-web:
+    build: ./frontend
+    ports:
+    - "8088:80"
+    links:
+    - heckfren-api
+    volumes:
+    - ./frontend/src:/var/www/html
+  heckfren-api:
+    build: ./api
+    ports:
+    - "8383:80"
+    volumes:
+    - ./api/db.json:/data/db.json

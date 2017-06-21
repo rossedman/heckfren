@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "version": "1.0",
+      "title": "Heck Fren!",
+      "color": "blue",
+      "image": "images/doge1.jpg",
+      "link": {
+        "text": "Doing Me A Frighten",
+        "url": "https://doggoipsum.com/"
+      }
+    }
+  ]
+}

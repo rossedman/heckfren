@@ -1,0 +1,15 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "version": "2.0",
+      "title": "Doing Me A Heckin Release!",
+      "color": "green",
+      "image": "images/doge2.jpg",
+      "link": {
+        "text": "Lots Of Pupper Words",
+        "url": "https://doggoipsum.com/"
+      }
+    }
+  ]
+}
