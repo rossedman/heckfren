@@ -10,7 +10,7 @@ spec:
         app: heckfren-web
     spec:
       containers:
-      - image: rossedman/heckfren:v1.0
+      - image: rossedman/heckfren:v1.1
         name: frontend
         ports:
         - containerPort: 80

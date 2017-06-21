@@ -9,32 +9,39 @@ $post = json_decode(file_get_contents('http://heckfren-api/posts/1'));
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="width: 60%">
       <div class="row">
-        <div class="col s12 m5">
           <div class="card-panel <?php echo $post->color; ?> darken-3">
             <div class="card-content white-text">
-              <h4><span class="card-title"><?php echo $post->title; ?></span></h4>
-              <p>Doggo ipsum fluffer big ol pupper. Adorable doggo very good spot boof porgo, big ol pupper. Heck lotsa pats noodle horse shoober tungg, long doggo bork very hand that feed shibe. Doggo clouds smol wow such tempt, long doggo smol. Boof snoot big ol pupper I am bekom fat maximum borkdrive, such treat vvv floofs. Shibe pupper bork stop it fren blep puggo, yapper very taste wow pats length boy. Super chub such treat fluffer, fat boi.</p>
+              <h5><span class="card-title"><?php echo $post->title; ?></span></h5>
             </div>
           </div>
-        </div>
-        <div class="col s12 m7">
           <div class="card">
             <div class="card-image">
               <img src="<?php echo $post->image; ?>">
             </div>
             <div class="card-content">
-              <p>Very taste wow maximum borkdrive the neighborhood pupper wrinkler shoober, pupper sub woofer.</p>
+              <p>Doggo ipsum fluffer big ol pupper. Adorable doggo very good spot boof porgo, big ol pupper. Heck lotsa pats noodle horse shoober tungg, long doggo bork very hand that feed shibe. Doggo clouds smol wow such tempt, long doggo smol. Boof snoot big ol pupper I am bekom fat maximum borkdrive, such treat vvv floofs. Shibe pupper bork stop it fren blep puggo, yapper very taste wow pats length boy. Super chub such treat fluffer, fat boi.</p>
             </div>
             <div class="card-action">
               <a href="<?php echo $post->link->url; ?>"><?php echo $post->link->text; ?></a>
             </div>
           </div>
-        </div>
+          <table class="bordered striped responsive-table">
+          <tbody>
+            <?php
+            foreach ($_ENV as $key=>$val) {
+              echo "<tr><td>".$key."</td><td>" .$val."</tr>";
+            }
+            foreach ($_SERVER as $key=>$val ){
+              echo "<tr><td>".$key."</td><td>" .$val."</tr>";
+            }
+            ?>
+          </tbody>
+        </table>
       </div>
       <div>
-        <p class="center">api version <strong><?php echo $post->version; ?></strong> | server: <strong><?php echo $_SERVER['SERVER_NAME']; ?></strong></p>
+        <p class="center">api version <strong><?php echo $post->version; ?></strong> | server: <strong><?php echo gethostname(); ?></strong></p>
       </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

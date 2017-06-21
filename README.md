@@ -53,3 +53,11 @@ kubernetes            10.23.240.1     <none>            443/TCP        2h
 
 As you can see, we have two service with external IP addresses that are facing the
 internet and one that is only available to the cluster.
+
+### Rolling Update
+
+Now with our new v2 service lets deploy an update so we can see our changes!
+
+```
+kubectl apply -f kubernetes/heckfren-api.v2.deploy.yml
+```
