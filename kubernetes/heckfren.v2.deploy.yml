@@ -1,16 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: heckfren-web
+  name: heckfren-web-canary
 spec:
   replicas: 3
   template:
     metadata:
       labels:
         app: heckfren-web
+        version: canary
     spec:
       containers:
-      - image: rossedman/heckfren:v1.0
+      - image: rossedman/heckfren:v1.1
         name: frontend
         ports:
         - containerPort: 80

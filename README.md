@@ -60,4 +60,4 @@ Now with our new v2 service lets deploy an update so we can see our changes!
 
 ```
 kubectl apply -f kubernetes/heckfren-api.v2.deploy.yml
-```
+``` 

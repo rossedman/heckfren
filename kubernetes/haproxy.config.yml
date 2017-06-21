@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: heckfren-haproxy-config
+data:
+  haproxy.cfg: |
+    frontend http-in
+      bind *:80
+      mode http
+      log 127.0.0.1 local2 debug
+
+      default_backend production
+
+    backend production
+      mode http
+      balance roundrobin
+      server canary-lb          heckfren-web-canary:80      check weight 50
+      server production-lb      heckfren-web-internal:80    check weight 50

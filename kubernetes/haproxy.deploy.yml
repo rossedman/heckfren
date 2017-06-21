@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: heckfren-haproxy
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: heckfren-haproxy
+    spec:
+      containers:
+      - image: haproxy:1.7.5
+        name: haproxy
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config
+          mountPath: /usr/local/etc/haproxy
+      volumes:
+      - name: config
+        configMap:
+          name: heckfren-haproxy-config

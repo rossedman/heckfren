@@ -11,3 +11,38 @@ spec:
     targetPort: 80
   selector:
     app: heckfren-web
+
+---
+
+# this is used in the HAProxy example where we do a canary release and
+# load balance across multiple services
+apiVersion: v1
+kind: Service
+metadata:
+  name: heckfren-web-internal
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  selector:
+    app: heckfren-web
+
+---
+
+# this is used in the HAProxy example where we do a canary release and
+# load balance across multiple services
+apiVersion: v1
+kind: Service
+metadata:
+  name: heckfren-web-canary
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  selector:
+    app: heckfren-web
+    version: canary
