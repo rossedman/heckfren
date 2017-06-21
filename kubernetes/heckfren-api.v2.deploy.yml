@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: heckfren-api
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: heckfren-api
+    spec:
+      containers:
+      - image: rossedman/heckfren-api:v2.0
+        name: api
+        ports:
+        - containerPort: 80

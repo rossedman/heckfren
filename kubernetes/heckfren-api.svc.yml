@@ -1,0 +1,32 @@
+# this is our internal service that the frontend will use
+# to discover the service, using http://heckfren-api
+apiVersion: v1
+kind: Service
+metadata:
+  name: heckfren-api
+spec:
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  selector:
+    app: heckfren-api
+
+---
+
+# this is our public facing service, this doesn't have to be exposed to the
+# open world, but is in this demo to show how different services can function
+apiVersion: v1
+kind: Service
+metadata:
+  name: heckfren-api-public
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  selector:
+    app: heckfren-api
